@@ -1,6 +1,6 @@
-import {defineConfig} from 'vitepress'
+import { defineConfig } from 'vitepress'
 import navbar from "./navbar.mjs";
-import {mediumZoomPlugin} from '@vuepress/plugin-medium-zoom'
+import { mediumZoomPlugin } from '@vuepress/plugin-medium-zoom'
 // 时间线
 import timeline from "vitepress-markdown-timeline";
 // 自动侧边栏
@@ -16,7 +16,7 @@ export default defineConfig({
         include: ['vue-activity-calendar']
     },
     //网站部署的路径，默认根目录
-    base: '/blog',
+    base: '/note_book',
     title: "York-经典鸡粉",
     description: "York的个人技术博客",
 
@@ -26,20 +26,20 @@ export default defineConfig({
     // head
     head: [
         // 站点图标
-        ["link", {rel: "icon", href: "/blog/icon/favicon.ico"}],
+        ["link", { rel: "icon", href: "/note_book/icon/favicon.ico" }],
 
         // 谷歌字体
         [
             'link',
-            {rel: 'preconnect', href: 'https://fonts.googleapis.com'}
+            { rel: 'preconnect', href: 'https://fonts.googleapis.com' }
         ],
         [
             'link',
-            {rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: ''}
+            { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }
         ],
         [
             'link',
-            {href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet'}
+            { href: 'https://fonts.googleapis.com/css2?family=Roboto&display=swap', rel: 'stylesheet' }
         ],
 
         // SEO
@@ -82,7 +82,7 @@ export default defineConfig({
         config: (md) => {
             md.renderer.rules.heading_close = (tokens, idx, options, env, slf) => {
                 let htmlResult = slf.renderToken(tokens, idx, options);
-                if (tokens[idx].tag === 'h1'){
+                if (tokens[idx].tag === 'h1') {
                     htmlResult += `<ArticleMetadata />`;
                     // htmlResult += `<CheckIn />`;
                 }
@@ -120,7 +120,7 @@ export default defineConfig({
                 image: ($page, $site) =>
                     $page.frontmatter.image &&
                     (($site.themeConfig.domain &&
-                            !$page.frontmatter.image.startsWith("http")) ||
+                        !$page.frontmatter.image.startsWith("http")) ||
                         "") + $page.frontmatter.image,
                 publishedAt: ($page) =>
                     $page.frontmatter.date && new Date($page.frontmatter.date),
@@ -154,7 +154,7 @@ export default defineConfig({
         lastUpdatedText: "最近更新时间:",
 
         // 上下篇
-        docFooter: {prev: '上一篇', next: '下一篇'},
+        docFooter: { prev: '上一篇', next: '下一篇' },
 
         outlineTitle: "目录",
         // 侧边栏显示二级标题到六级标题
@@ -183,7 +183,7 @@ export default defineConfig({
 
         // 友链
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/gfzyl/york-blog/'},
+            { icon: 'github', link: 'https://github.com/gfzyl/york-blog/' },
         ],
 
         // 底部版权信息
